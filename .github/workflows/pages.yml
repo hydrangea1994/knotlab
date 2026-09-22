@@ -23,7 +23,7 @@ jobs:
       - name: Build static site
         run: |
           mkdir -p public
-          base64 -d site.html.gz.b64 | gunzip > public/index.html
+          cat chunks/*.txt | base64 -d | gunzip > public/index.html
           touch public/.nojekyll
       - name: Configure Pages
         uses: actions/configure-pages@v5
